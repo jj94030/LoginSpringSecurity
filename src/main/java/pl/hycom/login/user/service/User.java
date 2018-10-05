@@ -3,6 +3,7 @@ package pl.hycom.login.user.service;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import pl.hycom.login.mail.VerificationToken;
 import pl.hycom.login.role.service.Role;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -50,8 +52,21 @@ public class User {
     @Column(name = "active")
     private int active;
 
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    public VerificationToken getVerificationToken() {
+        return verificationToken;
+    }
+    private VerificationToken verificationToken;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    public User() {
+        super();
+        this.enabled=false;
+    }
 }

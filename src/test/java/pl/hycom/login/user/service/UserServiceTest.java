@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import pl.hycom.login.mail.VerificationTokenService;
 import pl.hycom.login.role.service.RoleService;
 
 import static org.junit.Assert.assertEquals;
@@ -23,11 +24,13 @@ public class UserServiceTest {
     private RoleService roleService;
     @Mock
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Mock
+    private VerificationTokenService tokenService;
 
 
     @Before
     public void setup() {
-        userService = new UserService(userRepository, roleService, bCryptPasswordEncoder);
+        userService = new UserService(userRepository, roleService, bCryptPasswordEncoder, tokenService);
 
         user = new User();
         user.setEmail("test@test.pl");
