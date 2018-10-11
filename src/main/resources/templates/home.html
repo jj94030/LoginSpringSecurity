@@ -1,17 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>JJ</title>
+    <header th:replace="common/header::common_header"></header>
 </head>
 <body>
-<form th:action="@{/logout}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Logout</button>
-</form>
+
+<div th:replace="common/header::nav"></div>
 
 <div class="container">
-    <h1>Welcome !</h1>
 
 </div>
+
+<!--<form th:action="@{/sendEmail}" method="get">-->
+<!--<button class="btn btn-md btn-warning btn-block" type="Submit">Send Email</button>-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+<!--<form th:action="@{/sendMail}" method="get">-->
+<!--<button class="btn btn-md btn-warning btn-block" type="Submit">Send Email</button>-->
+<!--</form>-->
 
 </body>
 </html>
