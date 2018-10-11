@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Registration Form</title>
+<header th:replace="common/header::common_header"></header>
+
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.buttonSubmit {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+.buttonSubmit:hover {background-color: #e7e7e7;}
+
+    </style>
 </head>
 <body>
-<form th:action="@{/}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-</form>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form autocomplete="off" action="#" th:action="@{/registration}"
-                  th:object="${user}" method="post" class="form-horizontal"
-                  role="form">
-                <h2>Registration Form</h2>
-                <br>
+<div class="header">
+    <h1>Spring security</h1>
+    <p>This is example of registration user, activate account by sending activation link on e-mail address and verification by login</p>
+</div>
+<div class="topnav">
+    <a th:href="@{/login}">Login</a>
+    <a th:href="@{/registration}">Registration</a>
+</div>
+<div class="row">
+    <div class="column"></div>
+    <div class="column">
+        <form autocomplete="off" th:action="@{/registration}" th:object="${user}" method="post" class="form-horizontal"
+              role="form" align="center">
+            <h2>Registration Form</h2>
+            <br>
+            <div align="center">
                 <div class="form-group">
                     <div class="col-sm-9">
                         <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
@@ -52,17 +81,14 @@
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
+                        <button class="btn-block button buttonSubmit" type="submit">Register</button>
                     </div>
                 </div>
 
                 <span th:utext="${successMessage}"></span>
-
-
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
-
 </body>
 </html>
