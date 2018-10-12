@@ -20,21 +20,14 @@ public class LoginController {
     }
 
 
-    @GetMapping({"/", "/login"})
+    @GetMapping({"/login"})
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
         return modelAndView;
     }
 
-    @GetMapping("/logout")
-    public ModelAndView logout() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
-    }
-
-    @GetMapping("/admin/home")
+    @GetMapping("/")
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

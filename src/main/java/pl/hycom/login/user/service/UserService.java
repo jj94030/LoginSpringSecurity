@@ -3,8 +3,8 @@ package pl.hycom.login.user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.hycom.login.VerificationToken.VerificationToken;
-import pl.hycom.login.VerificationToken.VerificationTokenService;
+import pl.hycom.login.verificationToken.VerificationToken;
+import pl.hycom.login.verificationToken.VerificationTokenService;
 import pl.hycom.login.role.service.Role;
 import pl.hycom.login.role.service.RoleService;
 

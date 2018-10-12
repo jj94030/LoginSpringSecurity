@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import pl.hycom.login.VerificationToken.VerificationTokenService;
+import pl.hycom.login.verificationToken.VerificationTokenService;
 import pl.hycom.login.role.service.RoleService;
 
 import static org.junit.Assert.assertEquals;

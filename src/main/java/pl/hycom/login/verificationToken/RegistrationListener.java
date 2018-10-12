@@ -1,4 +1,4 @@
-package pl.hycom.login.VerificationToken;
+package pl.hycom.login.verificationToken;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
