@@ -1,4 +1,4 @@
-package pl.hycom.login.VerificationToken;
+package pl.hycom.login.verificationToken;
 
 import lombok.Data;
 import pl.hycom.login.user.service.User;

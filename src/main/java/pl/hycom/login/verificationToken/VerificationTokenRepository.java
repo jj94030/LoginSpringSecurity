@@ -1,4 +1,4 @@
-package pl.hycom.login.VerificationToken;
+package pl.hycom.login.verificationToken;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

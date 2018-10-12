@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
-import pl.hycom.login.VerificationToken.OnRegistrationCompleteEvent;
-import pl.hycom.login.VerificationToken.VerificationToken;
+import pl.hycom.login.verificationToken.OnRegistrationCompleteEvent;
+import pl.hycom.login.verificationToken.VerificationToken;
 import pl.hycom.login.user.service.User;
 import pl.hycom.login.user.service.UserService;
 

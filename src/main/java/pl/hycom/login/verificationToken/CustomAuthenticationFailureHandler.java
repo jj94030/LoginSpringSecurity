@@ -1,4 +1,4 @@
-package pl.hycom.login.VerificationToken;
+package pl.hycom.login.verificationToken;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.WebAttributes;

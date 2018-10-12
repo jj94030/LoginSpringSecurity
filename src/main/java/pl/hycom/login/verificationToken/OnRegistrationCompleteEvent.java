@@ -1,4 +1,4 @@
-package pl.hycom.login.VerificationToken;
+package pl.hycom.login.verificationToken;
 
 import lombok.Getter;
 import lombok.Setter;
