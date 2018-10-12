@@ -2,7 +2,7 @@ package pl.hycom.login.user.service;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import pl.hycom.login.VerificationToken.VerificationToken;
+import pl.hycom.login.verificationToken.VerificationToken;
 import pl.hycom.login.role.service.Role;
 
 import javax.persistence.CascadeType;
