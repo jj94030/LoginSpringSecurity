@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <header th:replace="common/header::common_header"></header>
+</head>
+<body>
+<div th:replace="common/header::nav"></div>
+
+<div class="row">
+    <div class="column"></div>
+    <div class="column">
+        <form th:action="@{/edit}" th:object="${userEditFormObject}" method="post" class="form-horizontal" align="center">
+            <h2>User data</h2>
+            <br>
+            <div align="center">
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-9">-->
+                        <!--<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"-->
+                               <!--class="validation-message"></label>-->
+                        <!--<input type="text" th:field="*{name}" placeholder="Name"-->
+                               <!--class="form-control"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+                <div class="col-sm-9 form-group"
+                     th:classappend="${#fields.hasErrors('name')} ? 'has-error has-feedback' : ''">
+                    <label for="element-name" class="data-label">First name: *</label>
+                    <input id="element-name" class="form-control" th:field="*{name}">
+                    <span th:if="${#fields.hasErrors('name')}"
+                          class="glyphicon glyphicon-remove form-control-feedback error"></span>
+                    <div class="error-message error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                        Incorrect name
+                    </div>
+                </div>
+
+                <div class="col-sm-9 form-group"
+                     th:classappend="${#fields.hasErrors('lastName')} ? 'has-error has-feedback' : ''">
+                    <label for="element-lastName" class="data-label">Last name: *</label>
+                    <input id="element-lastName" class="form-control" th:field="*{lastName}">
+                    <span th:if="${#fields.hasErrors('lastName')}"
+                          class="glyphicon glyphicon-remove form-control-feedback error"></span>
+                    <div class="error-message error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+                        Incorrect lastName
+                    </div>
+                </div>
+
+
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-9">-->
+                        <!--<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"-->
+                               <!--class="validation-message"></label>-->
+                        <!--<input type="text" th:field="*{lastName}"-->
+                               <!--placeholder="Last Name" class="form-control"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button class="btn-block button buttonSubmit" type="submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
