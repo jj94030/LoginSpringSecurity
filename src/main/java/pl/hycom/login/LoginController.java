@@ -9,6 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.hycom.login.user.service.User;
 import pl.hycom.login.user.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
 
@@ -28,13 +31,14 @@ public class LoginController {
     }
 
     @GetMapping("/")
-    public ModelAndView home() {
+    public ModelAndView home(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
         modelAndView.setViewName("home");
+
+        HttpSession session = request.getSession(true);
+        session.setAttribute("currentUser", user.getId());
         return modelAndView;
     }
 }
