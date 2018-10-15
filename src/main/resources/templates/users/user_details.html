@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <header th:replace="common/header::common_header"></header>
+</head>
+
+<body>
+<div th:replace="common/header::nav"></div>
+<th:block th:object="${userDetails}">
+    <div class="row">
+        <div class="column"></div>
+        <div class="column">
+            <h3>User data</h3>
+            <div class="col-md-4">
+                <div class="data-field">
+                    <p style="font-weight:bold;">First name:</p>
+                    <p th:text="*{name}">
+
+                    <p style="font-weight:bold;">Last name:</p>
+                    <p th:text="*{lastName}">
+                </div>
+            </div>
+            <a th:href="@{/edit}">Edit</a>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>
+
+
+
+

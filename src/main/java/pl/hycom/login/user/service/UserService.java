@@ -3,6 +3,8 @@ package pl.hycom.login.user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.hycom.login.user.controller.UserDetailsFormObject;
+import pl.hycom.login.user.controller.UserEditFormObject;
 import pl.hycom.login.verificationToken.VerificationToken;
 import pl.hycom.login.verificationToken.VerificationTokenService;
 import pl.hycom.login.role.service.Role;
@@ -10,6 +12,7 @@ import pl.hycom.login.role.service.RoleService;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -57,6 +60,35 @@ public class UserService {
     }
 
     public void saveRegisteredUser(User user) {
+        userRepository.save(user);
+    }
+
+    public Optional<User> findUserById(int id) {
+        return userRepository.findById(id);
+    }
+
+    public UserDetailsFormObject getUserDetails(User user) {
+        UserDetailsFormObject userDetails = new UserDetailsFormObject();
+        userDetails.setName(user.getName());
+        userDetails.setLastName(user.getLastName());
+        return userDetails;
+    }
+
+    public UserEditFormObject getUserEdit(User user) {
+        UserEditFormObject userEdit = new UserEditFormObject();
+        userEdit.setName(user.getName());
+        userEdit.setLastName(user.getLastName());
+        return userEdit;
+    }
+
+    public User findById(Integer userId) {
+        return userRepository.findUserById(userId);
+    }
+
+    public void editUser(UserDTO userDTO) {
+        User user = findById(userDTO.getId());
+        user.setName(userDTO.getName());
+        user.setLastName(userDTO.getLastName());
         userRepository.save(user);
     }
 }
